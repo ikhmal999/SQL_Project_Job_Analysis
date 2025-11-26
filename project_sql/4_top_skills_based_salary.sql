@@ -18,7 +18,8 @@ identify the most financially rewarding skills to acquire or improve
         ON skills_job_dim.skill_id = skills_dim.skill_id
     WHERE 
         job_title_short = 'Data Analyst' AND
-        salary_year_avg IS NOT NULL
+        salary_year_avg IS NOT NULL AND
+        job_work_from_home IS TRUE
     GROUP BY skills
     ORDER BY avg_sal DESC
     LIMIT 30;

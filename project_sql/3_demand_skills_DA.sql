@@ -25,7 +25,7 @@ FROM CTE1
 JOIN skills_dim
     ON CTE1.skill_id = skills_dim.skill_id
 ORDER BY total DESC
-LIMIT 10;
+LIMIT 5;
 
 -- Much more simple query
 
@@ -38,7 +38,8 @@ JOIN skills_job_dim
     ON job_postings_fact.job_id = skills_job_dim.job_id
 JOIN skills_dim
     ON skills_job_dim.skill_id = skills_dim.skill_id
-WHERE job_title_short = 'Data Analyst'
+WHERE 
+    job_title_short = 'Data Analyst' 
 GROUP BY skills
 ORDER BY total DESC
-LIMIT 10;
+LIMIT 5;
